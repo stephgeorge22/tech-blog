@@ -4,7 +4,7 @@ const { Post, User } = require('../../models');
 // get all users
 router.get('/', (req, res) => {
     Post.findAll({
-        attributes: ['id', 'post_url', 'title', 'created_at'],
+        attributes: ['id', 'content', 'title', 'created_at'],
         order: [['created_at', 'DESC']],
         include: [
             {
@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['id', 'post_url', 'title', 'created_at'],
+        attributes: ['id', 'content', 'title', 'created_at'],
         include: [
             {
                 model: User,
@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
     })
         .then(dbPostData => {
             if (!dbPostData) {
-                res.status(404).json({ message: 'No post found with this id' });
+                res.status(404).json({ message: 'No blog post found with this id' });
                 return;
             }
             res.json(dbPostData);
@@ -47,10 +47,10 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+    // expects {title: 'Taskmaster goes public!', content: 'blog post', user_id: 1}
     Post.create({
         title: req.body.title,
-        post_url: req.body.post_url,
+        content: req.body.content,
         user_id: req.body.user_id
     })
         .then(dbPostData => res.json(dbPostData))
@@ -73,7 +73,7 @@ router.put('/:id', (req, res) => {
     )
         .then(dbPostData => {
             if (!dbPostData) {
-                res.status(404).json({ message: 'No post found with this id' });
+                res.status(404).json({ message: 'No blog post found with this id' });
                 return;
             }
             res.json(dbPostData);
@@ -92,7 +92,7 @@ router.delete('/:id', (req, res) => {
     })
         .then(dbPostData => {
             if (!dbPostData) {
-                res.status(404).json({ message: 'No post found with this id' });
+                res.status(404).json({ message: 'No blog post found with this id' });
                 return;
             }
             res.json(dbPostData);
