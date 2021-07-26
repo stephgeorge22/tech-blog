@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 require('dotenv').config();
 
-// for heroku 
+// for heroku to work 
 
 let sequelize;
 
