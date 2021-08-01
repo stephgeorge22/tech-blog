@@ -26,3 +26,5 @@ There are no test instructions at this moment.
 ## Questions
 Github: www.github.com/stephgeorge22
 Email: stephanie.george22@gmail.com
+
+![image](https://user-images.githubusercontent.com/48072176/127780218-0d619eb5-ad89-44e0-ae68-8b2f43d3492e.png)
