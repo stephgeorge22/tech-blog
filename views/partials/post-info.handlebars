@@ -1,7 +1,8 @@
 <article class="post">
     <div class="title">
         <a href="{{content}}" target="_blank">{{title}}</a>
-        <span>({{content}})</span>
+        {{!-- <span>({{content}})</span> --}}
+        <span>(Created by {{user.username}} on {{format_date created_at}})</span>
     </div>
     <div class="meta">
         <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
